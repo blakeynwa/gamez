@@ -1,7 +1,6 @@
 class Guess < ActiveRecord::Base
   belongs_to :card
+  belongs_to :round
 
-  def self.all
-    [Guess.new]
-  end
+
 end
