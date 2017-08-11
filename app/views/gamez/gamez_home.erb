@@ -1,5 +1,13 @@
-<ul>
-  <% @decks.each do |deck| %>
-    <li><%= h deck.inspect %></li>
-  <% end %>
-</ul>
+<div>
+  <h1>Welcome to the Gamez!</h1>
+  <ul>
+    <li><a href="/users/new">Register</a></li>
+    <li><a href="/users/login">Login</a></li>
+    <!-- <li><a href="">Home</a></li> This may be unnecessary -->
+  </ul>
+  <ul>
+    <% @decks.each do |deck| %>
+      <li><a href="/gamez/id"><%= h deck.inspect %></a></li>
+    <% end %>
+  </ul>
+</div>
