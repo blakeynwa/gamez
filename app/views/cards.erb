@@ -1,5 +1,5 @@
 <ul>
   <% @cards.each do |card| %>
-    <li><%= card.inspect %></li>
+    <li><%= h(card.inspect) %></li>
   <% end %>
 </ul>

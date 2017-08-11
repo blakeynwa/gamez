@@ -1,5 +1,5 @@
 get '/guesses'  do
-  @guessess = Guess.all
+  @guesses = Guess.all
   erb :guesses
 end
 
