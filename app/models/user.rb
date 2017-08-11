@@ -1,6 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  include BCrypt
+
   has_many :rounds
 
   validates :username, presence: true, uniqueness: true
