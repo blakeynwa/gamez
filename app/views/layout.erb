@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
+    <div>
+      <nav>
+        <ul>
+          <li><a href="/">home</a></li>
+          <% if logged_in? %>
+            <li><%= current_user.username %></li>
+            <li><form action="/logout" method="post"><input type="submit" value="Logout"></form></li>
+          <% else %>
+            <li><a href="/users/login">sign in</a></li>
+            <li><a href="/users/new">register</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
   <%= yield %>
 </body>
 </html>
