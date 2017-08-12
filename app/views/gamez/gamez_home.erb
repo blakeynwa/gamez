@@ -1,9 +1,9 @@
-<div> 
-  <h1>Welcome to the Gamez!</h1><br>
-  <h2>Select a quiz!</h2>
-  <ul>
-    <% @decks.each do |deck| %>
-      <li><form action="/gamez/<%= deck.id %>" method="post"><input type="submit" value="<%= deck.title %>"></form></li>
-    <% end %>
-  </ul>
+<div>
+  <h1 class="greeting">Welcome to the Gamez!</h1>
+  <h2 class="select">Select a quiz!</h2>
+   <ul class="questions_list">
+     <% @decks.each do |deck| %>
+       <li class="questions"><button class="submit_button"><form action="/gamez/<%= deck.id %>" method="post"><input type="submit" value= <%= deck.title %>"></form></button></li>
+     <% end %>
+   </ul>
 </div>

@@ -1,12 +1,12 @@
 <div>
   <h1>Answer the following questions</h1>
-  <p><%= @message if @message %> </p>
-  <form action="/gamez/<%= @deck.id %>/next" method="post">
-    <p><%= @card.question %></p><br>
-    <input type="text" name="answer" placeholder="What's your answer?">
-    <input type="submit" value="Submit your answer now!">
-  </form>
-
-
+  <div class="card">
+    <p><%= @message if @message %> </p>
+    <form action="/gamez/<%= @deck.id %>/next" method="post">
+      <p class="ask_question"><%= @card.question %></p><br>
+      <input type="text" name="answer" placeholder="What's your answer?">
+      <input type="submit" value="Submit your answer now!">
+    </form>
+  </div>
   <p><a href="/gamez/:id/stats">Click here to see your stats!</a></p>
 </div>
