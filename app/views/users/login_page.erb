@@ -1,5 +1,6 @@
 <div>
   <h1>Welcome back! Please login</h1>
+  <%= erb :'/users/errors' if @errors && @errors.any? %>
   <form action="/login" method="post">
     <label>Username</label><br>
     <input type="text" name="user[username]" placeholder="johndoe"><br>

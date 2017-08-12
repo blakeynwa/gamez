@@ -1,5 +1,6 @@
 <div class="create_account">
   <h1>Create your account now</h1>
+  <%= erb :'/users/errors' if @errors && @errors.any? %>
   <form action="/users" method="post">
     <label>Username</label><br>
     <input type="text" name="user[username]" placeholder="johndoe"><br>

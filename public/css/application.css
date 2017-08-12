@@ -68,6 +68,20 @@ label {
   background-color: #405d27;
 }
 
+.errors {
+  list-style-type: none;
+}
+
+.error_items {
+  color: #ff0000;
+  font-size: 20px;
+}
+
+.error_message {
+  color: #ff0000;
+  font-size: 23px;
+}
+
 
 
 
