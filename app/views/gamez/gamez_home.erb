@@ -1,13 +1,9 @@
 <div>
-  <h1>Welcome to the Gamez!</h1>
-  <ul>
-    <li><a href="/users/new">Register</a></li>
-    <li><a href="/users/login">Login</a></li>
-    <!-- <li><a href="">Home</a></li> This may be unnecessary -->
-  </ul>
+  <h1>Welcome to the Gamez!</h1><br>
+  <h2>Select a quiz!</h2>
   <ul>
     <% @decks.each do |deck| %>
-      <li><a href="/gamez/id"><%= h deck.inspect %></a></li>
+      <li><form action="/gamez/<%= deck.id %>" method="post"><input type="submit" value="<%= deck.title %>"></form></li>
     <% end %>
   </ul>
 </div>

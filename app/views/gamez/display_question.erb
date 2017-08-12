@@ -1,13 +1,7 @@
 <div>
-  The buttons can change based on if someone is logged in or not*******
-  <ul>
-    <li><a href="">Register</a></li>
-    <li><a href="">Sign In</a></li>
-    <li><a href="/gamez">Home</a></li>
-  </ul>
   <h1>Answer the following questions</h1>
   <form action="/gamez/id" method="post">
-    <p>This is a question:</p><br>
+    <p><%= @card.question %></p><br>
     <input type="text" name="answer" placeholder="What's your answer?">
     <input type="submit" value="Submit your answer now!">
   </form>
