@@ -4,6 +4,10 @@ require ::File.expand_path('../config/environment', __FILE__)
 
 # Include all of ActiveSupport's core class extensions, e.g., String#camelize
 require 'active_support/core_ext'
+require "pathname"
+
+path_to_root_directory = File.expand_path('../', __FILE__)
+APP_ROOT = Pathname.new(path_to_root_directory)
 
 namespace :generate do
   desc "Create an empty model in app/models, e.g., rake generate:model NAME=User"

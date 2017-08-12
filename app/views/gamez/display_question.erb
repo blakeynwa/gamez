@@ -1,11 +1,12 @@
 <div>
   <h1>Answer the following questions</h1>
-  <form action="/gamez/id" method="post">
+  <p><%= @message if @message %> </p>
+  <form action="/gamez/<&= @deck.id %>/next" method="post">
     <p><%= @card.question %></p><br>
     <input type="text" name="answer" placeholder="What's your answer?">
     <input type="submit" value="Submit your answer now!">
   </form>
 
 
-  <p><a href="/gamez/id/stats">Click here to see how your stats!</a></p>
+  <p><a href="/gamez/:id/stats">Click here to see how your stats!</a></p>
 </div>

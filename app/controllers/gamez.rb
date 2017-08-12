@@ -4,25 +4,34 @@ get '/gamez' do
 end
 
 get '/gamez/:id' do
-  # if logged_in?
-  #   session[:round_id] ||= Round.create(user_id: session[:user_id],deck_id: params[:id]).id
-  # else
-  #   session[:round_id] ||= Round.create(user_id: 1,deck_id: params[:id]).id
-  # end
-  @title = Deck.find(params[:id]).title
+  @deck = Deck.find(params[:id])
   @round = Round.find(session[:round_id])
-  @card = @round.next_card
+  @card = next_card(@round.id)
+  session[:card_id] = @card.id
+
+  if @round.guesses.any? 
+    if @round.guesses.last.correct? 
+      @message = 'Correct!'
+    else
+      @message = 'Wrong!'
+    end
+  else
+    @message = nil
+  end
 
   erb :'/gamez/display_question'
 end
 
-# post '/gamez/:id' do
+post '/gamez/:id/next' do
+  response = params[:answer]
+  card = Card.find(session[:card_id])
+  guess = Guess.create(guess: params[:answer], card_id: card.id, round_id: session[:round_id])
+  guess.correct?
+  redirect game_over?(round_id) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
 
-#   #redirect '/gamez/id' unless !Deck.question.any? #logic to redirect only if questions remain
-#   redirect '/gamez/id/stats'
-# end
+end
 
-get '/gamez/id/stats' do
+get '/gamez/:id/stats' do
   erb :'/gamez/stats'
 end
 

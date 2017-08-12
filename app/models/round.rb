@@ -8,9 +8,13 @@
     game_deck.pop # returns next q or nil if no more questions
   end
 
-  def game_deck
-    @game_deck ||= self.cards.shuffle
-  end
+  # def game_deck
+  #   @game_deck = @cards.
+  # end
+
+  # def guessed_cards
+  #   cards.where
+  # end
 
 
   # STAT METHODS

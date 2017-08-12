@@ -17,6 +17,7 @@ GEM
     arel (8.0.0)
     backports (3.8.0)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     byebug (9.0.6)
     capybara (2.15.1)
       addressable
@@ -40,7 +41,10 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.0-x86-mingw32)
+      mini_portile2 (~> 2.2.0)
     pg (0.21.0)
+    pg (0.21.0-x86-mingw32)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -93,6 +97,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activerecord (~> 5.1.2)
