@@ -1,0 +1,17 @@
+nav {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.nav_buttons {
+  list-style-type: none;
+}
+
+.nav_items {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-right: 1px solid;
+}

@@ -19,15 +19,15 @@
 </head>
 <body>
     <div>
-      <nav>
-        <ul>
-          <li><a href="/">home</a></li>
+      <nav class="nav_bar">
+        <ul class="nav_buttons">
+          <li class="nav_items"><a href="/">home</a></li>
           <% if logged_in? %>
-            <li><%= current_user.username %></li>
-            <li><form action="/logout" method="post"><input type="submit" value="Logout"></form></li>
+            <li class="nav_items"><%= current_user.username %></li>
+            <li class="nav_items"><form action="/logout" method="post"><input type="submit" value="Logout"></form></li>
           <% else %>
-            <li><a href="/users/login">sign in</a></li>
-            <li><a href="/users/new">register</a></li>
+            <li class="nav_items"><a href="/users/login">sign in</a></li>
+            <li class="nav_items"><a href="/users/new">register</a></li>
           <% end %>
         </ul>
       </nav>

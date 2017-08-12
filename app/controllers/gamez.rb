@@ -35,7 +35,6 @@ post '/gamez/:id/next' do
   card = Card.find(session[:card_id])
   guess = Guess.create(guess: params[:answer], card_id: card.id, round_id: session[:round_id])
   guess.correct?
-  p params
   redirect game_over?(guess[:round_id]) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
 
 end
