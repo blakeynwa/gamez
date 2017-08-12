@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     user = self.find_by(username: username)
     return user if user && user.password == plain_text_password
   end
+
+  def personal_stats
+    rounds.map { |round| round.stats }
+  end
 end

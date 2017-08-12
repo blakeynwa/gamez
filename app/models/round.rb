@@ -37,8 +37,6 @@
   end
 
   def stats
-    {total_cards: total_cards, total_guesses: total_guesses, first_try: first_try}
+    {total_cards: total_cards, total_guesses: total_guesses, first_try: first_try, datetime: created_at}
   end
-
-
 end
