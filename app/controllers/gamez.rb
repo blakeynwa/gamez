@@ -6,8 +6,16 @@ end
 get '/gamez/:id' do
   @deck = Deck.find(params[:id])
   @round = Round.find(session[:round_id])
-  @card = next_card(@round.id)
+  @card = Card.find(params[:id])
   session[:card_id] = @card.id
+
+  puts "=============="
+  p @deck.id
+  puts "=============="
+
+  puts "=============="
+  p @card 
+  puts "=============="
 
   if @round.guesses.any? 
     if @round.guesses.last.correct? 
@@ -27,7 +35,8 @@ post '/gamez/:id/next' do
   card = Card.find(session[:card_id])
   guess = Guess.create(guess: params[:answer], card_id: card.id, round_id: session[:round_id])
   guess.correct?
-  redirect game_over?(round_id) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
+  p params
+  redirect game_over?(guess[:round_id]) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
 
 end
 

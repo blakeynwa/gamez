@@ -5,7 +5,7 @@ class Guess < ActiveRecord::Base
   validates :guess, length: { minimum: 1 }
 
   def correct?
-    self.correctness ||= card.correct?(self.guess)
+    correctness ||= card.correct?(self.guess)
   end
 
   def incorrect?
