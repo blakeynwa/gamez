@@ -1,0 +1,6 @@
+<ul class="errors">
+  <p class="error_message">Cannot proceed due to the following:</p>
+  <% @errors.each do |error| %>
+    <li class="error_items"><%= error %></li>
+  <% end %>
+</ul>

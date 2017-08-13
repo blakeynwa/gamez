@@ -1,0 +1,122 @@
+body {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+  background-color: #82b74b;
+}
+
+.nav_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #3e4444;
+}
+
+.nav_items {
+  display: inline;
+}
+
+.nav_items a {
+  display:inline-block;
+  padding:10px;
+  margin: 40px;
+  color: #DFDCE3;
+  font-size: 40px;
+}
+
+.nav_items_user {
+  display:inline-block;
+  padding:10px;
+  margin: 40px;
+  color: #DFDCE3;
+  font-size: 40px;
+}
+
+h1 {
+  font-size: 60px;
+  color: #DFDCE3;
+}
+
+.questions_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.select {
+  font-size: 40px;
+  color: #DFDCE3;
+}
+
+label {
+  font-size: 25px;
+  color: #DFDCE3;
+  margin-right: 50px;
+}
+
+.ask_question {
+  font-size: 40px;
+  color: #DFDCE3;
+}
+
+.card {
+  border-style: solid;
+  border-color: black;
+  padding: 150px;
+  border-width:2px;
+  margin: 140px;
+  border-radius: 50px;
+  background-color: #405d27;
+}
+
+.errors {
+  list-style-type: none;
+}
+
+.error_items {
+  color: #ff0000;
+  font-size: 20px;
+}
+
+.error_message {
+  color: #ff0000;
+  font-size: 23px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+a {
+  text-shadow: 2px 2px #ff0000;
+}
+
+a:link, a:visited {
+  color: aquamarine;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: white;
+}
+
+
+
+
+
+
+

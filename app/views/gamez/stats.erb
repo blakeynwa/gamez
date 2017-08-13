@@ -3,10 +3,19 @@
     <li><a href="/gamez">Home</a></li>
   </ul>
   <h1>Here are your statistics! How did you do?</h1>
-
-  <ul>
-    <%#statistics will go here  %>
-      <li>insert statistics here</li>
-    <%#end %>
-  </ul>
+  <h2><%= @round.cards.first.deck.title %></h2>
+  <table>
+    <tr>
+      <td>Total Cards:</td>
+      <td><%= @round.total_cards %></td>
+    </tr>
+    <tr>
+      <td>Guesses Right on First Try:</td>
+      <td><%= @round.first_try %></td>
+    </tr>
+    <tr>
+      <td>Total Guesses:</td>
+      <td><%= @round.total_guesses %></td>
+    </tr>
+  </table>
 </div>
