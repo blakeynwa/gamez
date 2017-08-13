@@ -38,6 +38,7 @@ end
 
 get '/gamez/:id/stats' do
   @round = Round.last
+  @deck = Deck.find(params[:id])
   erb :'/gamez/stats'
 end
 

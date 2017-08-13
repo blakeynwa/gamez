@@ -43,7 +43,7 @@ end
 
 get '/users/stats' do
   @user = User.find(session[:user_id])
-  @rounds = @user.rounds
+  @rounds = @user.rounds.reverse
   erb :'/users/user_stats'
 end
 
