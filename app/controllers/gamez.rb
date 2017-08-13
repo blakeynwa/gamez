@@ -1,4 +1,8 @@
 get '/gamez' do
+  # end round session if someone prematurely ends
+  session.delete(:card_id) if session[:card_id]
+  session.delete(:round_id) if session[:round_id]
+
   @decks = Deck.all
   erb :'gamez/gamez_home'
 end
@@ -6,23 +10,11 @@ end
 get '/gamez/:id' do
   @deck = Deck.find(params[:id])
   @round = Round.find(session[:round_id])
-  @card = Card.find(params[:id])
+  @card = @round.next_card(@deck)
   session[:card_id] = @card.id
 
-  puts "=============="
-  p @deck.id
-  puts "=============="
-
-  puts "=============="
-  p @card 
-  puts "=============="
-
-  if @round.guesses.any? 
-    if @round.guesses.last.correct? 
-      @message = 'Correct!'
-    else
-      @message = 'Wrong!'
-    end
+  if @round.guesses.any?
+    @message = @round.guesses.last.correct? ? 'Correct!' : 'Wrong!'
   else
     @message = nil
   end
@@ -32,10 +24,16 @@ end
 
 post '/gamez/:id/next' do
   response = params[:answer]
+  deck = Deck.find(params[:id])
+  round = Round.find(session[:round_id])
   card = Card.find(session[:card_id])
+  session.delete(:card_id)
   guess = Guess.create(guess: params[:answer], card_id: card.id, round_id: session[:round_id])
   guess.correct?
-  redirect game_over?(guess[:round_id]) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
+  guess.save
+
+
+  redirect round.game_over?(deck) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
 
 end
 
