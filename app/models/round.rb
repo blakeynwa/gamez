@@ -44,7 +44,7 @@
 
   # counts incorrect guesses at given moment
   def total_incorrect
-    self.cards.count(&:incorrect?)
+    self.guesses.count(&:incorrect?)
   end
 
   def incorrect_guesses
@@ -52,7 +52,8 @@
   end
 
   def first_try
-    self.total_cards - self.incorrect_guesses.count
+    score = self.total_cards - self.total_incorrect
+    score < 0 ? 0 : score
   end
 
   def total_cards
@@ -61,9 +62,5 @@
 
   def total_guesses
     @total_guesses ||= self.guesses.count
-  end
-
-  def stats
-    {total_cards: total_cards, total_guesses: total_guesses, first_try: first_try, datetime: created_at}
   end
 end

@@ -1,27 +1,33 @@
 <div>
   <h1><%="Welcome, #{current_user.username}!"%></h1>
-  <h2>Game History</h2>
+  <p><a href="/gamez">Quizzes</a></p>
+  <h2>Quiz History</h2>
   <% if @rounds.any? %>
   <ul>
     <% @rounds.each do |round| %>
       <li>
-        <h3><%= round.cards.first.deck.title %></h3>
+        <% deck = round.cards.first.deck %>
+        <h3><%= deck.title %></h3>
         <table>
           <tr>
             <td>Played On:</td>
-            <td><%= round.created_at.to_date %></td>
+            <td colspan="3"><%= round.created_at.to_date %></td>
           </tr>
           <tr>
             <td>Total Cards:</td>
-            <td><%= round.total_cards %></td>
+            <td colspan="3"><%= round.total_cards %></td>
           </tr>
           <tr>
             <td>Guesses Right on First Try:</td>
             <td><%= round.first_try %></td>
+            <td>Average Guesses Right on First Try:</td>
+            <td><%= deck.avg_first_try %></td>
           </tr>
           <tr>
             <td>Total Guesses:</td>
             <td><%= round.total_guesses %></td>
+            <td>Average Total Guesses:</td>
+            <td><%= deck.avg_guesses %></td>
           </tr>
         </table>
       </li>
