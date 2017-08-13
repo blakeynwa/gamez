@@ -27,17 +27,17 @@ post '/gamez/:id/next' do
   deck = Deck.find(params[:id])
   round = Round.find(session[:round_id])
   card = Card.find(session[:card_id])
-  session.delete(:card_id)
   guess = Guess.create(guess: params[:answer], card_id: card.id, round_id: session[:round_id])
   guess.correct?
   guess.save
 
+  session.delete(:card_id)
 
   redirect round.game_over?(deck) ? "/gamez/#{params[:id]}/stats" : "/gamez/#{params[:id]}"
-
 end
 
 get '/gamez/:id/stats' do
+  @round = Round.last
   erb :'/gamez/stats'
 end
 

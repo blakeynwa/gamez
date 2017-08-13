@@ -42,6 +42,8 @@ post '/login' do
 end
 
 get '/users/stats' do
+  @user = User.find(session[:user_id])
+  @rounds = @user.rounds
   erb :'/users/user_stats'
 end
 

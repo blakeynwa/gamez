@@ -2,7 +2,6 @@
   belongs_to :user
   has_many :guesses
   has_many :cards, through: :guesses
-  has_one :deck, through: :cards
 
   def all_cards(deck)
     deck.cards
@@ -30,7 +29,7 @@
 
   def next_card(deck)
     unguessed = self.unguessed_cards(deck)
-    if unguessed
+    if unguessed.any?
       unguessed.sample
     else
       self.guessed_wrong.sample
@@ -39,25 +38,29 @@
 
   # STAT METHODS
   # counts correct guesses at given moment
-  def correct_guesses
+  def total_correct
     self.guesses.count(&:correct?)
   end
 
   # counts incorrect guesses at given moment
-  def incorrect_guesses
+  def total_incorrect
     self.cards.count(&:incorrect?)
   end
 
+  def incorrect_guesses
+    self.guesses.where(correctness: false).uniq { |guess| guess.card }
+  end
+
+  def first_try
+    self.total_cards - self.incorrect_guesses.count
+  end
+
   def total_cards
-    @total_cards ||= self.cards.count
+    @total_cards ||= self.cards.uniq.count
   end
 
   def total_guesses
     @total_guesses ||= self.guesses.count
-  end
-
-  def first_try
-    @first_try ||= self.cards.where('count(guesses) = 1').count
   end
 
   def stats
