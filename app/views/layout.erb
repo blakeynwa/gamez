@@ -22,7 +22,7 @@
       <nav>
         <ul class="nav_bar">
           <% if logged_in? %>
-            <li class="nav_items_user">username: <%= current_user.username %></li>
+            <li class="nav_items_user">username: <a href="/users/stats"><%= current_user.username %></a></li>
             <li class="nav_items_user"><form action="/logout" method="post"><input type="submit" value="Logout"></form></li>
           <% else %>
             <li class="nav_items"><a href="/">home</a></li>
